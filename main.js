@@ -30,7 +30,7 @@ const displayUser = () => {
 
 
       const btn = document.createElement('button')
-      
+      btn.innerHTML = "Show rest of info"
 
       li.appendChild(btn)
 
