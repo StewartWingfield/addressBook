@@ -12,7 +12,10 @@ const getUser = () => {
         console.log(users.results)
         displayUser()
     })
-}
+} 
+
+
+
 
 const displayUser = () => {
     const allUsers = document.getElementById('all-users')
@@ -26,6 +29,19 @@ const displayUser = () => {
       allUsers.append(li)
 
 
-      const button = document.create
+      const btn = document.createElement('button')
+      
+
+      li.appendChild(btn)
+
+      showDetails = () => {
+        const userDetails = document.createElement('h4')
+        userDetails.textContent = `Cell: ${user.cell}, DOB: ${Object.entries(user.dob)}, Email: ${user.email}, Gender: ${user.gender}, ID: ${Object.entries(user.id)}, Location: ${user.location.city}, ${user.location.country} Login: ${Object.entries(user.login)}, NAT: ${user.nat}, Phone: ${user.phone}, Registered: ${Object.entries(user.registered)}, Phone: ${user.phone}`
+        li.appendChild(userDetails)
+        btn.removeEventListener('click', showDetails)
+        }
+    
+        btn.addEventListener('click', showDetails)
     })
 }
+
