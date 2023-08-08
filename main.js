@@ -5,17 +5,27 @@ window.onload = () => {
 }
 
 const getUser = () => {
-    fetch('https://randomuser.me/api/')
+    fetch('https://randomuser.me/api/?results=20')
     .then(res => res.json())
-    .then(posts => randomUser = posts)
+    .then(users => {
+        randomUser = users.results
+        console.log(users.results)
+        displayUser()
+    })
 }
 
 const displayUser = () => {
-    const allPosts = document.getElementById('all-posts')
-    randomUser.map((post, index) => {
+    const allUsers = document.getElementById('all-users')
+    randomUser.map((user, index) => {
       const li = document.createElement('li')
-      const text = document.createTextNode(`#${index}, Title: ${post.title}:  ${post.body}, by user: ${post.userId}`)
+      const text = document.createTextNode(`${user.name.first} ${user.name.last}`)
+      const image = document.createElement('img')
+      image.src = user.picture.thumbnail
       li.appendChild(text)
-      allPosts.append(li)
+      li.appendChild(image)
+      allUsers.append(li)
+
+
+      const button = document.create
     })
 }
